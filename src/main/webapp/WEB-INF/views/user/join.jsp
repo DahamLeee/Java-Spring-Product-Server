@@ -30,14 +30,15 @@ $(document).ready(function() {
 		} else if($("#j_id").val() == "") {
 			alert("아이디 입력!!!");
 			return;
-		} else if($("#j_passowrd").val() == "") {
+		} else 
+			if($("#j_passowrd").val() == "") {
 			alert("비밀번호 입력!!!");
 			return;
 		} else if($("#j_password").val() != $("#pwdcheck").val()) {
 			alert("비밀번호 확인!!!");
 			return;
 		} else {
-			$("#memberform").attr("action", "${root}/user").submit();
+			$("#memberform").submit();
 		}
 	});
 	
@@ -73,8 +74,7 @@ $(document).ready(function() {
 <h1 align="center">회원가입</h1><br>
 <div class="container" align="center">
 	<div class="col-lg" align="center">
-		<form id="memberform" method="post" action="">
-		<input type="hidden" name="act" id="act" value="insert">
+		<form id="memberform" method="post" action="${root}/user/insert">
 			<div class="form-group" align="left">
 				<label for="">아이디</label>
 				<input type="text" class="form-control" id="j_id" name="j_id" placeholder="">
@@ -82,7 +82,7 @@ $(document).ready(function() {
 			</div>
 			<div class="form-group" align="left">
 				<label for="">비밀번호</label>
-				<input type="password" class="form-control" id="j_password" name="j_passowrd" placeholder="">
+				<input type="password" class="form-control" id="j_password" name="j_password" placeholder="">
 			</div>
 			<div class="form-group" align="left">
 				<label for="">비밀번호재입력</label>

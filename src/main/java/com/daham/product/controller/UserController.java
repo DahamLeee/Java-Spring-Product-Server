@@ -1,5 +1,7 @@
 package com.daham.product.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	private String insert(@RequestParam String j_userid, @RequestParam String j_password, @RequestParam String j_name, @RequestParam String j_phone) {
-		UserDto userDto = new UserDto(j_userid, j_password, j_name, j_phone);
+	private String insert(@RequestParam String j_id, @RequestParam String j_password, @RequestParam String j_name, @RequestParam String j_phone) {
+		System.out.println("========join========");
+		UserDto userDto = new UserDto(j_id, j_password, j_name, j_phone);
 		userService.insert(userDto);
 		return "index";
 	}

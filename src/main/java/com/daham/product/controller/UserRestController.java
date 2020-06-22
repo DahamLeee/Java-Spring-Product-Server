@@ -29,7 +29,6 @@ public class UserRestController {
 	@RequestMapping(value = "/login")
 	private ResponseEntity<HashMap<String, UserDto>> login(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session, @RequestParam(required = false) String idsave, @RequestParam String id, @RequestParam String password){
 		HashMap<String, UserDto> obj = new HashMap<>();
-		System.out.println("==========login=========");
 		try {
 			UserDto userDto = userService.login(id, password);
 			UserDto userdto = new UserDto();

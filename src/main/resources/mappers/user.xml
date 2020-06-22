@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mappers/gueset.xml -->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daham.product.dao.UserDao"> <!-- mybatis는 namespace필수!! -->
+   
+   <!-- id, password, name, phone
+        아이디, 비밀번호, 이름, 핸드폰 번호 -->
+   
+   <select id="login" resultType="userDto">
+   		SELECT * 
+   		FROM user 
+   		WHERE id = #{id} 
+   		and password = #{password} 
+   </select>
+   
+   <insert id="insert">
+   		INSERT INTO user (id, password, name, phone) values 
+   		(#{id}, #{password}, #{name}, #{phone}) 
+   </insert>
+   
+</mapper>    
+    
+    
+    
+    
+    
+    

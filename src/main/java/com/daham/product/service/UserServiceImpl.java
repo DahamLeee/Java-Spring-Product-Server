@@ -17,8 +17,18 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void insert(UserDto userDto) {
-		dao.insert(userDto);
+	public int insert(UserDto userDto) {
+		return dao.insert(userDto);
+	}
+
+	@Override
+	public int modify(UserDto userDto) {
+		return dao.modify(userDto);
+	}
+
+	@Override
+	public int delete(UserDto userDto) {
+		return dao.delete(userDto);
 	}
 
 }

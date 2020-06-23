@@ -38,32 +38,33 @@ $(document).ready(function() {
 			alert("비밀번호 확인!!!");
 			return;
 		} else {
-			$("#memberform").submit();
-		}
-	});
-	
-	$("#j_userid").change(function() { // 이거는 아이디 체킹
-		$.ajax({
-		    cache : false,
-		    url : "${root}/user.do", // 요기에
-		    type : "GET",
-		    data : {"act":"checkid", "userid":$("#j_id").val()}, 
-		    success : function(data) {
-		    	console.log(data);
-		    	let check = $("#msg");
-		    	if(data.res == 1) {
-		    		check.html("이미존재합니다.")
-		    	} else if(data.res == 0) {
-		    		check.html("사용가능합니다.")
-		    		// 원래 중복체크 했는지 안했는지 저장하는것도 있어야함
-		    	} else {
-		    		check.html("서버에러!");
-		    	}
-		    },
-		    error : function(xhr, status) {
-		        alert(xhr + " : " + status);
-		    }
-		});
+			$.ajax({
+				type : "POST",
+				url : "${root}/api/user/join/",
+				headers:{"Content-Type":"application/json"},
+				data : JSON.stringify(
+					{
+						id: $("#j_id").val(),
+						password: $("#j_password").val(),
+						name: $("#j_name").val(),
+						phone: $("#j_phone").val()
+					}),
+				success : function(data){
+					console.log(data);
+					if(data.status == 1){
+						alert("회원 가입 성공!");
+						location.href="${root}";
+					} else{
+						alert("회원 가입 실패!");
+						location.reload();
+					}
+				},
+				error : function(xhr, status){
+					console.log(xhr);
+					alert(xhr + " : " + status);
+				}
+			});
+		};
 	});
 });
 </script>
@@ -74,7 +75,7 @@ $(document).ready(function() {
 <h1 align="center">회원가입</h1><br>
 <div class="container" align="center">
 	<div class="col-lg" align="center">
-		<form id="memberform" method="post" action="${root}/user/insert">
+		<form id="memberform">
 			<div class="form-group" align="left">
 				<label for="">아이디</label>
 				<input type="text" class="form-control" id="j_id" name="j_id" placeholder="">

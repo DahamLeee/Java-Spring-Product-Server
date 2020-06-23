@@ -40,4 +40,8 @@ public class UserDto {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	@Override
+	public String toString() {
+		return "UserDto [id=" + id + ", password=" + password + ", name=" + name + ", phone=" + phone + "]";
+	}
 }

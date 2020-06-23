@@ -16,10 +16,22 @@
    </select>
    
    <insert id="insert">
-   		INSERT INTO user (id, password, name, phone) values 
+   		INSERT INTO user values 
    		(#{id}, #{password}, #{name}, #{phone}) 
    </insert>
    
+   <update id="modify">
+   		UPDATE user
+   		SET password = #{password}, 
+   		name = #{name}, 
+   		phone = #{phone} 
+   		WHERE id = #{id} 
+   </update>
+   
+   <delete id="delete">
+   		DELETE FROM user 
+   		WHERE id = #{id}
+   </delete>
 </mapper>    
     
     

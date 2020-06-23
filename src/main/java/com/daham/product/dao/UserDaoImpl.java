@@ -17,8 +17,18 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void insert(UserDto userDto) {
-		session.getMapper(UserDao.class).insert(userDto);
+	public int insert(UserDto userDto) {
+		return session.getMapper(UserDao.class).insert(userDto);
+	}
+
+	@Override
+	public int modify(UserDto userDto) {
+		return session.getMapper(UserDao.class).modify(userDto);
+	}
+
+	@Override
+	public int delete(UserDto userDto) {
+		return session.getMapper(UserDao.class).delete(userDto);
 	}
 
 }

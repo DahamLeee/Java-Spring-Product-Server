@@ -15,4 +15,9 @@
 		<%@ include file="./navbar.jsp" %>
 	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+	console.log("${status}");
+})
+</script>
 </html>

@@ -81,15 +81,15 @@
 	    	  	console.log($("#idsave").is(":checked"));
 	    	  	
 				$.ajax({
-				    url : "${root}/user/login", // 요기에
+				    url : "${root}/api/user/login", // 요기에
 				    type : "POST",
 				    data : {"id":$("#id").val(), "password":$("#password").val(), "idsave":saveid}, 
 				    success : function(data) {
 				    	if(data.status.id == "success"){
-				    		alert("로그인이 됐습니다"); 
+				    		alert("로그인 성공!"); 
 				    		location.reload();
 				    	} else{
-				    		alert("로그인을 실패했습니다");
+				    		alert("로그인 실패!");
 				    	}
 				    },
 				    error : function(xhr, status) {
@@ -102,7 +102,7 @@
 	  	function logout() {
 	  		$.ajax({
 			    cache : false,
-			    url : "${root}/user/logout", // 요기에
+			    url : "${root}/api/user/logout", // 요기에
 			    type : "POST",
 			    success : function(data) {
 			    	if(data.res == 1) {
@@ -110,7 +110,7 @@
 			    	} else {
 			    		alert("로그아웃에 문제가 발생했습니다.");
 			    	}
-			    	location.reload();
+			    	location.href="${root}";
 			    },
 			    error : function(xhr, status) {
 			        alert(xhr + " : " + status);

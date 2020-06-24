@@ -16,8 +16,8 @@
 	</div>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	console.log("${status}");
+$(function(){
+	$("#navhome").addClass("active");
 })
 </script>
 </html>

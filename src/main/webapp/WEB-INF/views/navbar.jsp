@@ -20,6 +20,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li id="navhome"><a href="${root}/">Home</a></li>
+              <li id="navproduct"><a href="${root}/product">Product</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <c:choose>

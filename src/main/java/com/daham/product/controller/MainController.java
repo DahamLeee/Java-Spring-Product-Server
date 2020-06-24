@@ -10,4 +10,9 @@ public class MainController {
 	private String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/product")
+	private String product() {
+		return "product/list";
+	}
 }

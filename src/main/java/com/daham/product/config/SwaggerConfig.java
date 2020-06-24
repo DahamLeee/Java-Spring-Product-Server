@@ -27,9 +27,9 @@ public class SwaggerConfig {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("PRODUCT API")
-				.description("SSAFY API Reference for Developers")
-				.termsOfServiceUrl("https://edu.ssafy.com")
-				.license("SSAFY License")
-				.licenseUrl("ssafy@ssafy.com").version("1.0").build();
+				.description("Daham Product API Reference for Developers")
+				.termsOfServiceUrl("#")
+				.license("Daham License")
+				.licenseUrl("dlek1011@gmail.com").version("1.0").build();
 	}
 }

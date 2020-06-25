@@ -6,4 +6,5 @@
 * Day3
 	> Product - Read(All), Navbar - active
 * Day4
-	> Product - Create(Write)
+	> Product - Create(Write), 
+	> Product - Version1(Delete, Modify, Buy)

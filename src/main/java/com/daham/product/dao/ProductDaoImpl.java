@@ -22,5 +22,10 @@ public class ProductDaoImpl implements ProductDao{
 	public int write(ProductDto productDto) {
 		return session.getMapper(ProductDao.class).write(productDto);
 	}
+
+	@Override
+	public ProductDto searchOne(String id) {	
+		return session.getMapper(ProductDao.class).searchOne(id);
+	}
 	
 }

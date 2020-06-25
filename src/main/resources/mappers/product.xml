@@ -16,4 +16,10 @@
 		(name, seller, price, description, regtime) 
 		VALUES (#{name}, #{seller}, #{price}, #{description}, sysdate()) 
 	</insert>
+	
+	<select id="searchOne" resultType="ProductDto">
+		SELECT * FROM 
+		product 
+		WHERE id = #{id} 
+	</select>
 </mapper>

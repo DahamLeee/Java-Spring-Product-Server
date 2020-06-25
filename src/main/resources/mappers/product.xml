@@ -10,5 +10,10 @@
 		product 
 		ORDER BY id DESC
 	</select>
-
+	
+	<insert id="write">
+		INSERT INTO product 
+		(name, seller, price, description, regtime) 
+		VALUES (#{name}, #{seller}, #{price}, #{description}, sysdate()) 
+	</insert>
 </mapper>

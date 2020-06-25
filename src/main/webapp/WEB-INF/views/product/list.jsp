@@ -38,14 +38,11 @@ $(function(){
 		url : "${root}/api/product/searchAll/",
 		headers:{"Content-Type":"application/json"},
 		success : function(data){
-			console.log(data);
-			console.log(data.length);
 			let producthtml;
 			if(data.length == 0){
 				producthtml += "<tr><td colspan=\"5\">등록된 상품이 없습니다.</td></tr>"
 				$("#htable").html(producthtml);
 			}
-			console.log("${userinfo.id}");
 			for(var i = 0; i < data.length; i++){
 				producthtml += "<tr>"
 						+"<td>"

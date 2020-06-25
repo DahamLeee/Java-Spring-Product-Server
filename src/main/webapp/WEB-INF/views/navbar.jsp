@@ -79,8 +79,6 @@
 	    	  	if($("#idsave").is(":checked")) {
 	    	  		saveid="saveok";
 	    	  	}
-	    	  	console.log($("#idsave").is(":checked"));
-	    	  	
 				$.ajax({
 				    url : "${root}/api/user/login", // 요기에
 				    type : "POST",

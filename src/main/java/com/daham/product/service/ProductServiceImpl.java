@@ -18,4 +18,9 @@ public class ProductServiceImpl implements ProductService{
 		return dao.searchAll();
 	}
 
+	@Override
+	public int write(ProductDto productDto) {
+		return dao.write(productDto);
+	}
+
 }

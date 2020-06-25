@@ -17,5 +17,10 @@ public class ProductDaoImpl implements ProductDao{
 	public List<ProductDto> searchAll() {
 		return session.getMapper(ProductDao.class).searchAll();
 	}
+
+	@Override
+	public int write(ProductDto productDto) {
+		return session.getMapper(ProductDao.class).write(productDto);
+	}
 	
 }

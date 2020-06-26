@@ -28,4 +28,9 @@ public class ProductServiceImpl implements ProductService{
 		return dao.searchOne(id);
 	}
 
+	@Override
+	public int remove(String id) {
+		return dao.remove(id);
+	}
+
 }

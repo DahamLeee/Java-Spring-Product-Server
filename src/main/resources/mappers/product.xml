@@ -22,4 +22,10 @@
 		product 
 		WHERE id = #{id} 
 	</select>
+	
+	<delete id="remove">
+		DELETE FROM 
+		product 
+		WHERE id = #{id} 
+	</delete>
 </mapper>

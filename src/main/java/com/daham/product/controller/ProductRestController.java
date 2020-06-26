@@ -53,7 +53,6 @@ public class ProductRestController {
 		HashMap<String, Integer> obj = new HashMap<>();
 		UserDto temp = (UserDto) session.getAttribute("userinfo");
 		productDto.setSeller(temp.getId());
-		System.out.println(productDto);
 		int cnt = productService.write(productDto);
 		if(cnt == 1) {
 			obj.put("status", 1);
@@ -82,9 +81,16 @@ public class ProductRestController {
 	
 	@ApiOperation(value = "특정 id를 가지고 있는 상품의 정보를 가지고 옴")
 	@DeleteMapping(value="/{id}")
-	private ResponseEntity<ProductDto> deleteProduct(@PathVariable String id){
-		ProductDto productDto = productService.searchOne(id);
-		return new ResponseEntity<ProductDto>(productDto, HttpStatus.OK);
+	private ResponseEntity<HashMap<String, Integer>> deleteProduct(@PathVariable String id){
+		int cnt = productService.remove(id);
+		HashMap<String, Integer> obj = new HashMap<>();
+		
+		if(cnt == 1) { // 삭제 성공
+			obj.put("status", 1);
+		} else { // 삭제 실패
+			obj.put("status", 0);
+		}
+		
+		return new ResponseEntity<HashMap<String,Integer>>(obj, HttpStatus.OK);
 	}
-	
 }

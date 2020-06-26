@@ -27,5 +27,10 @@ public class ProductDaoImpl implements ProductDao{
 	public ProductDto searchOne(String id) {	
 		return session.getMapper(ProductDao.class).searchOne(id);
 	}
+
+	@Override
+	public int remove(String id) {
+		return session.getMapper(ProductDao.class).remove(id);
+	}
 	
 }

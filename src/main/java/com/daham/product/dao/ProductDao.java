@@ -8,4 +8,5 @@ public interface ProductDao {
 	public List<ProductDto> searchAll();
 	public int write(ProductDto productDto);
 	public ProductDto searchOne(String id);
+	public int remove(String id);
 }

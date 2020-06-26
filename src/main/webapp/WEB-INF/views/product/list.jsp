@@ -82,11 +82,15 @@ $(function(){
 					producthtml += "<td></td>"
 								+ "<td onclick=remove("+ data[i].id + ")> 삭제 </td>"
 								+ "<td onclick=modify("+ data[i].id + ")>수정</td>"
-				} else{
+				} else if("${userinfo.id}" != ""){
 					producthtml += "<td onclick=buy("+ data[i].id + ")>구매</td>"
 								+ "<td></td>"
 								+ "<td></td>"
 								
+				} else{
+					producthtml += "<td></td>"
+								+ "<td></td>"
+								+ "<td></td>"
 				}
 				$("#htable").html(producthtml);
 			} // for end
@@ -110,8 +114,10 @@ function remove(idx){
 		success : function(data){
 			if(data.status == 1){
 				alert("삭제가 성공적으로 이루어졌습니다");
+				location.reload();
 			} else{
 				alert("삭제하는 도중 에러가 발생했습니다");
+				location.reload();
 			}
 		},
 		error : function(xhr, status){

@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiOperation;
 public class ProductRestController {
 	
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 	
 	@ApiOperation(value = "판매자가 등록한 상품들의 정보를 가지고 옴")
 	@GetMapping(value="/searchAll")

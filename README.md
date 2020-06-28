@@ -8,5 +8,7 @@
 * Day4
 	> Product - Create(Write), 
 	> Product - Version1(Delete, Modify, Buy)
-* Day4
+* Day5
 	> Product - Create(Write) 수정, Delete 완료
+* Day7
+	> Product - Modify 완료

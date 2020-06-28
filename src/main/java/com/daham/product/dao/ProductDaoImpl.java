@@ -32,5 +32,10 @@ public class ProductDaoImpl implements ProductDao{
 	public int remove(String id) {
 		return session.getMapper(ProductDao.class).remove(id);
 	}
+
+	@Override
+	public int modify(ProductDto productDto) {
+		return session.getMapper(ProductDao.class).modify(productDto);
+	}
 	
 }

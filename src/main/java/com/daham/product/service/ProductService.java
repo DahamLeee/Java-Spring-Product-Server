@@ -9,4 +9,5 @@ public interface ProductService {
 	public int write(ProductDto productDto);
 	public ProductDto searchOne(String id);
 	public int remove(String id);
+	public int modify(ProductDto productDto);
 }

@@ -28,4 +28,10 @@
 		product 
 		WHERE id = #{id} 
 	</delete>
+	
+	<update id="modify">
+		UPDATE product 
+		SET name = #{name}, price = #{price}, description = #{description} 
+		WHERE id = #{id} 
+	</update>
 </mapper>

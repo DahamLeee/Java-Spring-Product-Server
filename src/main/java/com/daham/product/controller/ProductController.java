@@ -22,10 +22,10 @@ public class ProductController {
 		return "product/write";
 	}
 	
-	@GetMapping(value = "/mvdetail/{id}")
+	@GetMapping(value = "/mvmodify/{id}")
 	private String mvdetail(@PathVariable String id, Model model) {
 		ProductDto productDto = productSerivce.searchOne(id);
-		model.addAttribute("product", productDto);
-		return "product/detail";
+		model.addAttribute("productDto", productDto);
+		return "product/modify";
 	}
 }

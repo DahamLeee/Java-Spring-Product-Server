@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,6 +78,21 @@ public class ProductRestController {
 	private ResponseEntity<ProductDto> findProductById(@PathVariable String id){
 		ProductDto productDto = productService.searchOne(id);
 		return new ResponseEntity<ProductDto>(productDto, HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "상품 정보를 수정한다")
+	@PutMapping(value="/modify/{id}")
+	private ResponseEntity<HashMap<String, Integer>> updateProduct(@RequestBody ProductDto productDto){
+		HashMap<String, Integer> obj = new HashMap<>();
+		
+		int cnt = productService.modify(productDto);
+		if(cnt == 1) {
+			obj.put("status", 1);
+		} else {
+			obj.put("status", 0);
+		}
+		
+		return new ResponseEntity<HashMap<String,Integer>>(obj, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "특정 id를 가지고 있는 상품의 정보를 가지고 옴")

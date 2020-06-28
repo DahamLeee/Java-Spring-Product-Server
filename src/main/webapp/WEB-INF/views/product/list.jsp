@@ -127,9 +127,7 @@ function remove(idx){
 	})
 }
 function modify(idx){
-	alert("${userinfo.id}는 판매자이고 " + idx + "번째 상품을 수정할 것입니다.");
-	location.href="${root}/product/mvdetail/" + idx;
-	
+	location.href="${root}/product/mvmodify/" + idx;
 }
 
 function buy(idx){

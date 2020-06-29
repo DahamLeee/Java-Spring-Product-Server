@@ -13,7 +13,7 @@
 		
 		<h1>여기는 상품 조회입니다</h1>
 		<div>
-      		<form id="searchform" action="${root}/product/api/search">
+      		<form id="searchform" action="${root}/api/product/search">
       		<input type="hidden" name="page" value="">
       			<div class="form-group">			
       				<select id="key" id="key" name="key">
@@ -51,7 +51,8 @@ $(function(){
 	
 	$.ajax({
 		type: "GET",
-		url : "${root}/product/api/searchAll/",
+		url : "${root}/api/product/searchAll/",
+		async : false,
 		headers:{"Content-Type":"application/json"},
 		success : function(data){
 			let producthtml;
@@ -62,10 +63,10 @@ $(function(){
 				for(var i = 0; i < data.length; i++){
 				producthtml += "<tr>"
 						+"<td>"
-						+data[i].id
+						+data[i].product_id
 						+"</td>"
 						+"<td>"
-						+"<a href=\"${root}/product/api/findProductById/"+ data[i].id +"\">"
+						+"<a href=\"${root}/api/product/findProductById/"+ data[i].product_id +"\">"
 						+data[i].name
 						+"</a>"
 						+"</td>"
@@ -78,12 +79,12 @@ $(function(){
 						+"<td>"
 						+data[i].regtime
 						+"</td>"
-				if("${userinfo.id}" == data[i].seller){
+				if("${userinfo.user_id}" == data[i].seller){
 					producthtml += "<td></td>"
-								+ "<td onclick=remove("+ data[i].id + ")> 삭제 </td>"
-								+ "<td onclick=modify("+ data[i].id + ")>수정</td>"
-				} else if("${userinfo.id}" != ""){
-					producthtml += "<td onclick=buy("+ data[i].id + ")>구매</td>"
+								+ "<td onclick=remove("+ data[i].product_id + ")> 삭제 </td>"
+								+ "<td onclick=modify("+ data[i].product_id + ")>수정</td>"
+				} else if("${userinfo.user_id}" != ""){
+					producthtml += "<td onclick=buy("+ data[i].product_id + ")>구매</td>"
 								+ "<td></td>"
 								+ "<td></td>"
 								
@@ -109,7 +110,7 @@ function submit(idx) {
 function remove(idx){
 	$.ajax({
 		type : "DELETE",
-		url : "${root}/product/api/" + idx,
+		url : "${root}/api/product/" + idx,
 		headers:{"Content-Type":"application/json"},
 		success : function(data){
 			if(data.status == 1){
@@ -131,7 +132,9 @@ function modify(idx){
 }
 
 function buy(idx){
-	alert("${userinfo.id}인 사람이 " + idx + "번째 상품을 살 것입니다");
+	alert("${userinfo.user_id}인 사람이 " + idx + "번째 상품을 살 것입니다");
+	// 그러면 여기서 구매목록에 담는거지
+	
 }
 
 </script>

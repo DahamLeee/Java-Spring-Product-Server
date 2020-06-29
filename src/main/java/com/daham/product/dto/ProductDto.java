@@ -1,7 +1,7 @@
 package com.daham.product.dto;
 
 public class ProductDto {
-	private int id;
+	private int product_id;
 	private String name;
 	private String seller;
 	private int price;
@@ -14,11 +14,11 @@ public class ProductDto {
 	public void setSeller(String seller) {
 		this.seller = seller;
 	}
-	public int getId() {
-		return id;
+	public int getProduct_id() {
+		return product_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 	public String getName() {
 		return name;
@@ -46,7 +46,7 @@ public class ProductDto {
 	}
 	@Override
 	public String toString() {
-		return "ProductDto [id=" + id + ", name=" + name + ", seller=" + seller + ", price=" + price + ", description="
+		return "ProductDto [id=" + product_id + ", name=" + name + ", seller=" + seller + ", price=" + price + ", description="
 				+ description + ", regtime=" + regtime + "]";
 	}
 	

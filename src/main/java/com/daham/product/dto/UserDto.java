@@ -1,14 +1,14 @@
 package com.daham.product.dto;
 
 public class UserDto {
-	private String id;
+	private String user_id;
 	private String password;
 	private String name;
 	private String phone;
 	
-	public UserDto(String id, String password, String name, String phone) {
+	public UserDto(String user_id, String password, String name, String phone) {
 		super();
-		this.id = id;
+		this.user_id = user_id;
 		this.password = password;
 		this.name = name;
 		this.phone = phone;
@@ -16,11 +16,11 @@ public class UserDto {
 	public UserDto() {
 		
 	}
-	public String getId() {
-		return id;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getPassword() {
 		return password;
@@ -42,6 +42,6 @@ public class UserDto {
 	}
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", password=" + password + ", name=" + name + ", phone=" + phone + "]";
+		return "UserDto [id=" + user_id + ", password=" + password + ", name=" + name + ", phone=" + phone + "]";
 	}
 }

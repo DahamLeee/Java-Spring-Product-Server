@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiOperation;
 //http://localhost:8080/daham/swagger-ui.html
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController
-@RequestMapping("/product/api")
+@RequestMapping("/api/product")
 @Api(value="DAHAM")
 public class ProductRestController {
 	
@@ -53,7 +53,7 @@ public class ProductRestController {
 	private ResponseEntity<HashMap<String, Integer>> write(HttpSession session, @RequestBody ProductDto productDto){
 		HashMap<String, Integer> obj = new HashMap<>();
 		UserDto temp = (UserDto) session.getAttribute("userinfo");
-		productDto.setSeller(temp.getId());
+		productDto.setSeller(temp.getUser_id());
 		int cnt = productService.write(productDto);
 		if(cnt == 1) {
 			obj.put("status", 1);

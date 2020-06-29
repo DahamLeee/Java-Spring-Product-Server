@@ -12,3 +12,5 @@
 	> Product - Create(Write) 수정, Delete 완료
 * Day7
 	> Product - Modify 완료
+* Day8
+	> User & Product - id column change

@@ -7,20 +7,11 @@
 <head>
 <%@ include file="../htmlHead_init.jsp" %>
 <style type="text/css">
-		.container
-		{
-		width: 100%;
-		}
-		.col-lg
-		{
-		width:50%;
-		border : solid black;
-		}
-		#memberform
-		{
-		width:80%;
-		}
-	</style>
+	#j_form{
+		width : 70%;
+		margin : auto;
+	}
+</style>
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#registerBtn").click(function() {
@@ -45,7 +36,7 @@ $(document).ready(function() {
 				headers:{"Content-Type":"application/json"},
 				data : JSON.stringify(
 					{
-						id: $("#j_id").val(),
+						user_id: $("#j_id").val(),
 						password: $("#j_password").val(),
 						name: $("#j_name").val(),
 						phone: $("#j_phone").val()
@@ -75,7 +66,7 @@ $(document).ready(function() {
       <%@ include file="../navbar.jsp" %>
 <h1 align="center">회원가입</h1><br>
 <div class="container" align="center">
-	<div class="col-lg" align="center">
+	<div class="col-lg" align="center" id="j_form">
 		<form id="memberform">
 			<div class="form-group" align="left">
 				<label for="">아이디</label>

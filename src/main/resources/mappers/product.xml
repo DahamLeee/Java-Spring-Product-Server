@@ -8,7 +8,7 @@
 	<select id="searchAll" resultType="ProductDto">
 		SELECT * FROM 
 		product 
-		ORDER BY id DESC
+		ORDER BY product_id DESC
 	</select>
 	
 	<insert id="write">
@@ -20,18 +20,18 @@
 	<select id="searchOne" resultType="ProductDto">
 		SELECT * FROM 
 		product 
-		WHERE id = #{id} 
+		WHERE product_id = #{product_id} 
 	</select>
 	
 	<delete id="remove">
 		DELETE FROM 
 		product 
-		WHERE id = #{id} 
+		WHERE product_id = #{product_id} 
 	</delete>
 	
 	<update id="modify">
 		UPDATE product 
 		SET name = #{name}, price = #{price}, description = #{description} 
-		WHERE id = #{id} 
+		WHERE product_id = #{product_id} 
 	</update>
 </mapper>

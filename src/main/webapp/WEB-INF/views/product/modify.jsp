@@ -43,11 +43,11 @@ $(document).ready(function(){
 		} else{
 			$.ajax({
 				type : "PUT",
-				url : "${root}/product/api/modify/" + ${productDto.id},
+				url : "${root}/api/product/modify/" + ${productDto.product_id},
 				headers:{"Content-Type":"application/json"},
 				data : JSON.stringify(
 					{
-						id : ${productDto.id},
+						product_id : ${productDto.product_id},
 						name : $("#name").val(),
 						price : $("#price").val(),
 						description : $("#description").val()

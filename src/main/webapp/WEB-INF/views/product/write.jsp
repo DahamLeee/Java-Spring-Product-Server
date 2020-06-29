@@ -18,7 +18,7 @@
 			} else{
 				$.ajax({
 					type : "POST",
-					url : "${root}/product/api/write",
+					url : "${root}/api/product/write",
 					headers:{"Content-Type":"application/json"},
 					data : JSON.stringify(
 						{

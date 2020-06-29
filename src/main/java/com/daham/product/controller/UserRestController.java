@@ -51,19 +51,20 @@ public class UserRestController {
 	
 	@ApiOperation(value = "사용자가 id, password를 통해 로그인을 합니다.", response = HashMap.class)
 	@PostMapping(value="/login")
-	private ResponseEntity<HashMap<String, UserDto>> login(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session, @RequestParam(required = false) String idsave, @RequestParam String id, @RequestParam String password){
+	private ResponseEntity<HashMap<String, UserDto>> login(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session, @RequestParam(required = false) String idsave, @RequestParam String user_id, @RequestParam String password){
 		HashMap<String, UserDto> obj = new HashMap<>();
 		try {
-			UserDto userDto = userService.login(id, password);
+			System.out.println(user_id + " " + password);
+			UserDto userDto = userService.login(user_id, password);
 			UserDto userdto = new UserDto();
-			userdto.setId("fail");
+			userdto.setUser_id("fail");
 			if(userDto != null) {
 				session.setAttribute("userinfo", userDto);
-				userdto.setId("success");
+				userdto.setUser_id("success");
 				obj.put("userinfo", userDto);
 				obj.put("status", userdto);
 				if("saveok".equals(idsave)) {
-					Cookie cookie = new Cookie("saveid", userDto.getId());
+					Cookie cookie = new Cookie("saveid", userDto.getUser_id());
 					cookie.setPath(request.getContextPath());
 					cookie.setMaxAge(60 * 60 * 3);
 					response.addCookie(cookie);

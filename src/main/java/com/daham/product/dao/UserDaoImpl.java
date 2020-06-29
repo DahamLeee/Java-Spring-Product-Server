@@ -12,8 +12,8 @@ public class UserDaoImpl implements UserDao{
 	SqlSession session;
 	
 	@Override
-	public UserDto login(String id, String password) {
-		return session.getMapper(UserDao.class).login(id, password);
+	public UserDto login(String user_id, String password) {
+		return session.getMapper(UserDao.class).login(user_id, password);
 	}
 
 	@Override

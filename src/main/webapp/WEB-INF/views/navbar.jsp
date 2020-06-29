@@ -15,7 +15,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${root}/">Product</a>
+            <a class="navbar-brand" href="${root}/product">Product</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -29,8 +29,9 @@
               <li><a href="${root}/user/mvinsert">회원가입</a></li>
             	</c:when>
             	<c:otherwise>
-              <li><a>${userinfo.name}(${userinfo.id})</a></li>
-              <input type="hidden" id="userCheck" value="${userinfo.id}">
+              <li><a>${userinfo.name}(${userinfo.user_id})</a></li>
+              <input type="hidden" id="userCheck" value="${userinfo.user_id}">
+              <li><a href="${root}/product/mvbuy">구매 목록</a></li>
               <li><a href="${root}/user/mvmodify">수정</a></li>
               <li><a style="cursor:pointer;" onclick="logout()">로그아웃</a></li>           	
             	</c:otherwise>
@@ -51,7 +52,7 @@
 		      	<form>
 		          <div class="form-group">
 		            <label for="" class="control-label">ID:</label>
-		            <input type="text" class="form-control" id="id" name="id" value="${svid}">
+		            <input type="text" class="form-control" id="user_id" name="user_id" value="${svid}">
 		          </div>
 		          <div class="form-group">
 		            <label for="" class="control-label">비밀번호:</label>
@@ -82,11 +83,11 @@
 				$.ajax({
 				    url : "${root}/api/user/login", // 요기에
 				    type : "POST",
-				    data : {"id":$("#id").val(), "password":$("#password").val(), "idsave":saveid}, 
+				    data : {"user_id":$("#user_id").val(), "password":$("#password").val(), "idsave":saveid}, 
 				    success : function(data) {
-				    	if(data.status.id == "success"){
+				    	if(data.status.user_id == "success"){
 				    		alert("로그인 성공!"); 
-				    		location.reload();
+				    		location.href="${root}";
 				    	} else{
 				    		alert("로그인 실패!");
 				    	}
